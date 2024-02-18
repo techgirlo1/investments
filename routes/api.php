@@ -19,12 +19,13 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::middleware('auth:api')->group(function () {
      // User Profile
        Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
-    });
 
-      // investment
+     // investment
        Route::post('/investments', [InvestmentController::class, 'create']);
        Route::get('/investments', [InvestmentController::class, 'showInvestments']);
  
+    });
+
 //User interface and Repository injection
 Route::get('/users', [AuthController::class, 'index']);
 Route::get('/users/{userId}', [AuthController::class, 'userById']);
